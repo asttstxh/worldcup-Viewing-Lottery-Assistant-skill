@@ -31,7 +31,7 @@
 ```bash
 git clone https://github.com/asttstxh/worldcup-Viewing-Lottery-Assistant-skill.git
 cd worldcup-Viewing-Lottery-Assistant-skill
-./scripts/install.sh
+bash scripts/install.sh
 ```
 
 重启 Codex 后，可以这样使用：
