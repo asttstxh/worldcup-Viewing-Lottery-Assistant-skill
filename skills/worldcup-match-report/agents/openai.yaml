@@ -1,0 +1,4 @@
+interface:
+  display_name: "世界杯赛前分析报告"
+  short_description: "生成世界杯观赛、阵容、赔率与购彩分析HTML报告"
+  default_prompt: "Use $worldcup-match-report to 输出巴西 vs 摩洛哥分析。"
