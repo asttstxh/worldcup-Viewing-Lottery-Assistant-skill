@@ -1,0 +1,66 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="720" viewBox="0 0 1280 720" role="img" aria-labelledby="title desc">
+  <title id="title">World Cup Viewing and Lottery Assistant Skill Preview</title>
+  <desc id="desc">A stylized preview card for a Codex skill that generates World Cup viewing guides, squad research, odds notes, tactical boards, player cards, and lottery plans.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#071b28"/>
+      <stop offset="0.48" stop-color="#06472f"/>
+      <stop offset="1" stop-color="#102a57"/>
+    </linearGradient>
+    <linearGradient id="gold" x1="0" x2="1">
+      <stop offset="0" stop-color="#ffd84d"/>
+      <stop offset="1" stop-color="#f2b705"/>
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="18" stdDeviation="22" flood-color="#00151f" flood-opacity="0.35"/>
+    </filter>
+    <pattern id="pitch" width="120" height="80" patternUnits="userSpaceOnUse">
+      <path d="M0 40H120M60 0V80" stroke="#ffffff" stroke-opacity="0.08" stroke-width="2"/>
+    </pattern>
+  </defs>
+  <rect width="1280" height="720" fill="url(#bg)"/>
+  <rect y="500" width="1280" height="220" fill="#0b6b47"/>
+  <rect y="500" width="1280" height="220" fill="url(#pitch)"/>
+  <circle cx="640" cy="500" r="96" fill="none" stroke="#ffffff" stroke-opacity="0.16" stroke-width="4"/>
+  <line x1="640" y1="500" x2="640" y2="720" stroke="#ffffff" stroke-opacity="0.16" stroke-width="4"/>
+
+  <g filter="url(#shadow)">
+    <rect x="64" y="64" width="1152" height="592" rx="22" fill="#f8fbf6"/>
+    <rect x="64" y="64" width="1152" height="174" rx="22" fill="#06263b"/>
+    <rect x="64" y="210" width="1152" height="28" fill="#0b6b47"/>
+  </g>
+
+  <rect x="104" y="100" width="310" height="42" rx="21" fill="url(#gold)"/>
+  <text x="128" y="128" font-family="Inter, Arial, sans-serif" font-size="20" font-weight="700" fill="#102033">Codex Skill · World Cup Assistant</text>
+  <text x="104" y="188" font-family="Inter, Arial, sans-serif" font-size="56" font-weight="800" fill="#ffffff">赛前观赛与购彩指南</text>
+  <text x="816" y="134" font-family="Inter, Arial, sans-serif" font-size="28" font-weight="800" fill="#ffce14">VIEWING</text>
+  <text x="816" y="170" font-family="Inter, Arial, sans-serif" font-size="28" font-weight="800" fill="#ffffff">LOTTERY</text>
+  <text x="816" y="206" font-family="Inter, Arial, sans-serif" font-size="28" font-weight="800" fill="#9be7c3">ASSISTANT</text>
+
+  <g transform="translate(104 278)">
+    <rect width="312" height="130" rx="12" fill="#0b6b47"/>
+    <text x="24" y="44" font-family="Inter, Arial, sans-serif" font-size="30" font-weight="800" fill="#ffffff">观赛视角</text>
+    <text x="24" y="78" font-family="Inter, Arial, sans-serif" font-size="20" fill="#d8f3e4">球队背景 · 完整名单 · 球员卡</text>
+    <text x="24" y="108" font-family="Inter, Arial, sans-serif" font-size="20" fill="#d8f3e4">首发预测 · 战术板 · 风险提示</text>
+  </g>
+  <g transform="translate(456 278)">
+    <rect width="312" height="130" rx="12" fill="#102a57"/>
+    <text x="24" y="44" font-family="Inter, Arial, sans-serif" font-size="30" font-weight="800" fill="#ffffff">购彩视角</text>
+    <text x="24" y="78" font-family="Inter, Arial, sans-serif" font-size="20" fill="#dce7ff">胜平负 · 让球 · 比分</text>
+    <text x="24" y="108" font-family="Inter, Arial, sans-serif" font-size="20" fill="#dce7ff">赔率解释 · 概率估算 · 预算分配</text>
+  </g>
+  <g transform="translate(808 278)">
+    <rect width="312" height="130" rx="12" fill="#7d1d24"/>
+    <text x="24" y="44" font-family="Inter, Arial, sans-serif" font-size="30" font-weight="800" fill="#ffffff">证据优先</text>
+    <text x="24" y="78" font-family="Inter, Arial, sans-serif" font-size="20" fill="#ffe1e4">来源链接 · 已核验标记</text>
+    <text x="24" y="108" font-family="Inter, Arial, sans-serif" font-size="20" fill="#ffe1e4">推断标注 · 负责任预算</text>
+  </g>
+
+  <g transform="translate(104 460)">
+    <rect width="1016" height="130" rx="14" fill="#ffffff" stroke="#d6e2dc"/>
+    <text x="30" y="42" font-family="Inter, Arial, sans-serif" font-size="26" font-weight="800" fill="#102033">输入一场比赛，输出一份可核验 HTML 报告</text>
+    <text x="30" y="84" font-family="Inter, Arial, sans-serif" font-size="22" fill="#4b6378">Example: [$worldcup-match-report] 输出阿根廷 vs 阿尔及利亚分析报告</text>
+    <rect x="782" y="35" width="184" height="58" rx="29" fill="url(#gold)"/>
+    <text x="820" y="72" font-family="Inter, Arial, sans-serif" font-size="22" font-weight="800" fill="#102033">Open Skill</text>
+  </g>
+</svg>
