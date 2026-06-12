@@ -1,0 +1,870 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" href="data:,">
+  <title>巴西 vs 摩洛哥赛前分析报告</title>
+  <style>
+    :root {
+      --ink: #102033;
+      --muted: #697586;
+      --line: #d9e2df;
+      --paper: #eaf1eb;
+      --panel: #ffffff;
+      --green: #0b6b47;
+      --gold: #fece14;
+      --blue: #102a57;
+      --red: #b33a3a;
+      --grass: #147a4d;
+      --deep: #071527;
+      --stadium: #020f2a;
+      --soft-green: #e4f4ec;
+      --soft-gold: #fff6cc;
+      --soft-blue: #e7eef9;
+      --soft-red: #fbeaea;
+      --shadow: 0 18px 44px rgba(7, 21, 39, .12);
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: "Noto Sans SC", "PingFang SC", "Microsoft YaHei", Arial, sans-serif;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at 14% 4%, rgba(254, 206, 20, .24), transparent 22%),
+        radial-gradient(circle at 86% 8%, rgba(18, 126, 78, .26), transparent 26%),
+        linear-gradient(180deg, #06172a 0, #082b25 310px, var(--paper) 620px, #eef4f1 100%);
+      line-height: 1.6;
+    }
+
+    a { color: var(--blue); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    button { font: inherit; }
+
+    .hero {
+      position: relative;
+      min-height: 460px;
+      color: #fff;
+      background:
+        radial-gradient(circle at 18% 14%, rgba(255,255,255,.2), transparent 15%),
+        radial-gradient(circle at 82% 18%, rgba(254, 206, 20, .42), transparent 20%),
+        linear-gradient(110deg, rgba(2, 15, 42, .98), rgba(4, 56, 39, .82) 50%, rgba(2, 15, 42, .94)),
+        url("https://www.thesportsdb.com/images/media/team/banner/ryskjz1777720201.jpg") center/cover no-repeat;
+      display: flex;
+      align-items: flex-end;
+      padding: 56px 28px 46px;
+      overflow: hidden;
+    }
+
+    .hero:after {
+      content: "";
+      position: absolute;
+      inset: auto -10% -38% -10%;
+      height: 52%;
+      background:
+        linear-gradient(90deg, transparent calc(50% - 1px), rgba(255,255,255,.34) calc(50% - 1px) calc(50% + 1px), transparent calc(50% + 1px)),
+        repeating-linear-gradient(90deg, rgba(255,255,255,.09) 0 1px, transparent 1px 96px),
+        linear-gradient(180deg, rgba(20, 122, 77, .62), rgba(8, 72, 47, .94));
+      border-top: 1px solid rgba(255,255,255,.2);
+      transform: skewY(-3deg);
+      pointer-events: none;
+    }
+
+    .hero-inner { max-width: 1180px; width: 100%; margin: 0 auto; position: relative; z-index: 1; }
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: .08em;
+      color: #101820;
+      background: var(--gold);
+      border-radius: 999px;
+      padding: 6px 10px;
+      margin-bottom: 14px;
+    }
+    h1 { font-size: clamp(38px, 6vw, 76px); line-height: .96; margin: 0 0 14px; letter-spacing: 0; }
+    .subtitle { max-width: 760px; margin: 0; color: rgba(255,255,255,.86); font-size: 17px; }
+
+    .team-strip {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+      gap: 18px;
+      align-items: center;
+      margin-top: 28px;
+      width: 100%;
+      max-width: none;
+      padding: 14px 16px;
+      border: 1px solid rgba(255,255,255,.28);
+      background:
+        linear-gradient(90deg, rgba(14, 95, 61, .72), rgba(2, 15, 42, .58) 48%, rgba(14, 95, 61, .72)),
+        rgba(255,255,255,.1);
+      backdrop-filter: blur(14px);
+      border-radius: 8px;
+      box-shadow: inset 0 -3px 0 rgba(254, 206, 20, .72), 0 18px 45px rgba(0,0,0,.24);
+    }
+
+    .team {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      min-width: 0;
+      padding: 12px 14px;
+      border-radius: 8px;
+      background: rgba(255,255,255,.08);
+    }
+    .team.away { justify-content: flex-end; text-align: right; }
+    .team img { width: 58px; height: 58px; object-fit: contain; flex: 0 0 auto; }
+    .team strong { display: block; font-size: 22px; line-height: 1.1; color: #fff; text-shadow: 0 1px 4px rgba(0,0,0,.22); }
+    .team span { display: block; color: rgba(255,255,255,.78); font-size: 13px; }
+    .versus { font-size: 14px; font-weight: 900; color: #101820; background: var(--gold); border-radius: 999px; padding: 10px 12px; box-shadow: 0 8px 18px rgba(0,0,0,.18); }
+
+    main { max-width: 1180px; margin: -24px auto 0; padding: 0 20px 56px; position: relative; z-index: 2; }
+
+    .notice {
+      background: rgba(255,255,255,.96);
+      border: 1px solid var(--line);
+      border-left: 6px solid var(--gold);
+      border-radius: 8px;
+      box-shadow: var(--shadow);
+      padding: 16px 18px;
+      margin: 0 0 22px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .grid { display: grid; gap: 16px; }
+    .grid.two { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .grid.three { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    .grid.four { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+
+    section {
+      background:
+        linear-gradient(180deg, rgba(255,255,255,.98), rgba(250,253,251,.96)),
+        var(--panel);
+      border: 1px solid rgba(217, 226, 223, .9);
+      border-top: 3px solid rgba(254, 206, 20, .84);
+      border-radius: 8px;
+      box-shadow: 0 1px 0 rgba(255,255,255,.72), 0 18px 36px rgba(18, 47, 34, .08);
+      padding: 22px;
+      margin: 18px 0;
+    }
+
+    h2 { font-size: 23px; margin: 0 0 14px; letter-spacing: 0; }
+    h2:before { content: ""; display: inline-block; width: 8px; height: 22px; background: var(--gold); border-radius: 2px; margin-right: 9px; vertical-align: -4px; }
+    h3 { font-size: 17px; margin: 0 0 10px; letter-spacing: 0; }
+    p { margin: 0 0 10px; }
+    strong { color: var(--deep); font-weight: 900; }
+    .read-highlight {
+      color: #062b1d;
+      font-weight: 900;
+      background: linear-gradient(180deg, transparent 55%, rgba(254, 206, 20, .42) 55%);
+      padding: 0 2px;
+    }
+    .text-card {
+      border-left: 3px solid var(--gold);
+      padding-left: 12px;
+    }
+
+    .metric {
+      border: 1px solid rgba(255,255,255,.12);
+      border-radius: 8px;
+      padding: 14px;
+      background:
+        linear-gradient(180deg, rgba(255,255,255,.08), rgba(255,255,255,.03)),
+        var(--deep);
+      min-height: 104px;
+      box-shadow: 0 14px 28px rgba(7, 21, 39, .16);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .metric:after {
+      content: "";
+      position: absolute;
+      inset: auto 0 0;
+      height: 4px;
+      background: var(--gold);
+    }
+    .metric b { display: block; font-size: 24px; line-height: 1.1; margin-bottom: 8px; color: #fff; }
+    .metric span { color: rgba(255,255,255,.74); font-size: 13px; }
+    .metric.green { background: linear-gradient(145deg, #06281d, #0c5e40); border-color: rgba(30, 183, 118, .36); }
+    .metric.gold { background: linear-gradient(145deg, #33270a, #7d620f); border-color: rgba(254, 206, 20, .42); }
+    .metric.blue { background: linear-gradient(145deg, #071527, #123b73); border-color: rgba(86, 139, 211, .42); }
+    .metric.red { background: linear-gradient(145deg, #311012, #7f2628); border-color: rgba(239, 94, 94, .42); }
+    .metric.green:after { background: #14c684; }
+    .metric.gold:after { background: var(--gold); }
+    .metric.blue:after { background: #60a5fa; }
+    .metric.red:after { background: #ef4444; }
+
+    .tag {
+      display: inline-block;
+      padding: 4px 8px;
+      border-radius: 999px;
+      background: var(--soft-blue);
+      color: var(--blue);
+      font-size: 12px;
+      font-weight: 700;
+      margin: 0 6px 6px 0;
+      white-space: nowrap;
+    }
+
+    .tag.warn { background: var(--soft-gold); color: #7a5b09; }
+    .tag.risk { background: var(--soft-red); color: var(--red); }
+    .tag.good { background: var(--soft-green); color: var(--green); }
+
+    table { width: 100%; border-collapse: collapse; font-size: 14px; }
+    th, td { border-bottom: 1px solid var(--line); padding: 10px 8px; text-align: left; vertical-align: top; }
+    th { color: #516074; font-size: 12px; font-weight: 800; background: #f4f8f5; }
+    tr:last-child td { border-bottom: 0; }
+
+    .pillbar { display: flex; gap: 8px; flex-wrap: wrap; margin: 8px 0 0; }
+
+    .tabs { display: flex; gap: 8px; flex-wrap: wrap; margin: 14px 0; }
+    .tab-button {
+      border: 1px solid #cfd8d4;
+      border-radius: 999px;
+      background: #fff;
+      color: var(--ink);
+      padding: 8px 14px;
+      cursor: pointer;
+      font-weight: 700;
+    }
+    .tab-button.active { background: var(--deep); border-color: var(--deep); color: #fff; box-shadow: inset 0 -3px 0 var(--gold); }
+    .team-panel[hidden] { display: none; }
+    .table-wrap { overflow-x: auto; }
+    .roster-table { min-width: 980px; }
+    .avatar-cell { width: 58px; }
+    .roster-avatar,
+    .avatar-button {
+      width: 42px;
+      height: 42px;
+      border-radius: 999px;
+      display: inline-grid;
+      place-items: center;
+      overflow: hidden;
+    }
+    .avatar-button {
+      padding: 0;
+      border: 2px solid var(--gold);
+      background: #0a2f22;
+      cursor: pointer;
+      box-shadow: 0 7px 16px rgba(7, 21, 39, .14);
+    }
+    .avatar-button:hover { transform: translateY(-1px); box-shadow: 0 10px 18px rgba(7, 21, 39, .2); }
+    .roster-avatar {
+      border: 1px solid var(--line);
+      background: #f4f8f5;
+      font-size: 22px;
+    }
+    .roster-avatar.player-photo {
+      border-color: rgba(213, 226, 219, .95);
+      background: #0a2f22;
+      box-shadow: 0 5px 12px rgba(7, 21, 39, .1);
+    }
+    .roster-avatar img,
+    .avatar-button img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: top center;
+    }
+    .name-link {
+      border: 0;
+      background: none;
+      color: var(--blue);
+      padding: 0;
+      cursor: pointer;
+      font-weight: 800;
+      text-align: left;
+    }
+    .name-link:hover { text-decoration: underline; }
+    .name-meta { color: var(--muted); font-size: 12px; }
+    .badge { display: inline-block; border-radius: 999px; padding: 2px 8px; font-size: 12px; font-weight: 800; background: #eef3f8; color: var(--muted); }
+    .badge.start { background: #102033; color: #fff; box-shadow: inset 0 -2px 0 var(--gold); }
+
+    .staff-list { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; margin: 10px 0 16px; }
+    .staff-item { border: 1px solid var(--line); border-radius: 8px; padding: 10px; background: linear-gradient(180deg, #fbfffc, #f4f8f6); }
+    .staff-item b { display: block; }
+    .staff-item span { color: var(--muted); font-size: 12px; }
+
+    .pitch {
+      border: 3px solid rgba(255,255,255,.9);
+      border-radius: 8px;
+      background:
+        radial-gradient(circle at center, transparent 0 16%, rgba(255,255,255,.62) 16.4% 16.9%, transparent 17.2%),
+        linear-gradient(90deg, transparent calc(50% - 1px), rgba(255,255,255,.68) calc(50% - 1px) calc(50% + 1px), transparent calc(50% + 1px)),
+        repeating-linear-gradient(90deg, rgba(255,255,255,.08) 0 1px, transparent 1px 78px),
+        linear-gradient(90deg, #107347 0 20%, #168453 20% 40%, #107347 40% 60%, #168453 60% 80%, #107347 80%);
+      min-height: 420px;
+      display: grid;
+      grid-template-rows: repeat(4, 1fr);
+      gap: 10px;
+      padding: 18px;
+      position: relative;
+      overflow: hidden;
+      box-shadow: inset 0 0 0 2px rgba(255,255,255,.34), 0 16px 28px rgba(10, 79, 49, .22);
+    }
+
+    .pitch:before {
+      content: "";
+      position: absolute;
+      inset: 9%;
+      border: 2px solid rgba(255,255,255,.56);
+      border-radius: 6px;
+      pointer-events: none;
+    }
+
+    .pitch:after {
+      content: "";
+      position: absolute;
+      left: 9%;
+      right: 9%;
+      top: 50%;
+      height: 15%;
+      transform: translateY(-50%);
+      border-left: 2px solid rgba(255,255,255,.55);
+      border-right: 2px solid rgba(255,255,255,.55);
+      pointer-events: none;
+    }
+
+    .lineup-row {
+      position: relative;
+      z-index: 2;
+      display: flex;
+      justify-content: center;
+      gap: 8px;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+
+    .player-dot {
+      min-width: 92px;
+      padding: 8px 10px 8px 30px;
+      border-radius: 999px;
+      background: rgba(255,255,255,.95);
+      border: 1px solid rgba(255,255,255,.7);
+      text-align: left;
+      font-size: 12px;
+      font-weight: 800;
+      color: #123424;
+      cursor: pointer;
+      position: relative;
+      box-shadow: 0 5px 14px rgba(0,0,0,.12);
+    }
+    .player-dot:before {
+      content: "";
+      position: absolute;
+      left: 9px;
+      top: 50%;
+      width: 14px;
+      height: 18px;
+      transform: translateY(-50%);
+      background:
+        radial-gradient(circle at 50% 16%, var(--deep) 0 4px, transparent 4.5px),
+        linear-gradient(var(--gold), var(--gold)) 50% 64% / 10px 10px no-repeat;
+      border-radius: 8px 8px 4px 4px;
+    }
+    .player-dot:hover { border-color: var(--gold); box-shadow: 0 8px 18px rgba(0,0,0,.18); transform: translateY(-1px); }
+
+    .split-note { color: var(--muted); font-size: 13px; margin-top: 8px; }
+
+    .budget {
+      display: grid;
+      grid-template-columns: 110px 1fr 120px;
+      gap: 10px;
+      align-items: center;
+      padding: 10px 0;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .budget:last-child { border-bottom: 0; }
+    .budget b { display: block; margin-bottom: 6px; line-height: 1.35; }
+    .budget span { justify-self: end; font-weight: 800; color: var(--deep); }
+    .bar { height: 12px; border-radius: 999px; background: #e9eef5; overflow: hidden; }
+    .fill { height: 100%; border-radius: 999px; background: var(--green); }
+    .fill.gold { background: var(--gold); }
+    .fill.blue { background: var(--blue); }
+    .fill.red { background: var(--red); }
+
+    .source-list { columns: 2; padding-left: 18px; color: var(--muted); font-size: 13px; }
+    .source-list li { break-inside: avoid; margin-bottom: 6px; }
+    .odds-guide {
+      margin-top: 10px;
+      border: 1px solid rgba(254, 206, 20, .46);
+      background: linear-gradient(180deg, #fff9d6, #fffdf0);
+      color: #3f3210;
+      border-radius: 8px;
+      padding: 12px 14px;
+      font-size: 13px;
+    }
+    .odds-guide b { color: #1b2a18; }
+
+    .modal {
+      position: fixed;
+      inset: 0;
+      z-index: 20;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      background: rgba(4, 13, 25, .78);
+      backdrop-filter: blur(8px);
+    }
+    .modal.open { display: flex; }
+    .player-card {
+      position: relative;
+      width: min(920px, 100%);
+      min-height: 460px;
+      border-radius: 14px;
+      overflow: hidden;
+      color: #fff;
+      background:
+        radial-gradient(circle at 86% 8%, rgba(254, 206, 20, .25), transparent 24%),
+        linear-gradient(135deg, rgba(3, 17, 39, .99), rgba(9, 96, 64, .94)),
+        #071527;
+      box-shadow: 0 28px 80px rgba(0, 0, 0, .34);
+      display: grid;
+      grid-template-columns: 360px 1fr;
+      border: 1px solid rgba(255,255,255,.18);
+    }
+    .card-photo {
+      position: relative;
+      min-height: 460px;
+      background:
+        radial-gradient(circle at 50% 34%, rgba(254,206,20,.24), transparent 28%),
+        linear-gradient(180deg, #198356 0%, #0d5639 100%);
+    }
+    .card-photo img { width: 100%; height: 100%; object-fit: contain; object-position: center bottom; display: block; padding: 0 18px; filter: drop-shadow(0 18px 18px rgba(0,0,0,.28)); }
+    .card-photo:after { content: ""; position: absolute; inset: auto 0 0; height: 38%; background: linear-gradient(0deg, rgba(8,18,30,.72), rgba(8,18,30,0)); }
+    .card-number { position: absolute; left: 18px; bottom: 14px; z-index: 1; font-size: 56px; font-weight: 900; line-height: 1; color: rgba(255,255,255,.88); }
+    .card-body { padding: 28px; display: flex; flex-direction: column; gap: 14px; }
+    .card-kicker { color: var(--gold); font-size: 13px; font-weight: 800; letter-spacing: .03em; }
+    .card-name-cn { font-size: clamp(28px, 5vw, 46px); line-height: 1.05; margin: 0; }
+    .card-name-cn:before { display: none; }
+    .card-name-en { color: rgba(255,255,255,.72); margin-top: -8px; }
+    .card-role { color: rgba(255,255,255,.84); }
+    .stat-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; }
+    .stat { border: 1px solid rgba(255,255,255,.16); background: rgba(255,255,255,.08); border-radius: 8px; padding: 12px; }
+    .stat small { display: block; color: rgba(255,255,255,.62); font-size: 12px; }
+    .stat b { display: block; font-size: 18px; }
+    .close-modal {
+      position: absolute;
+      right: 14px;
+      top: 14px;
+      z-index: 2;
+      border: 1px solid rgba(255,255,255,.32);
+      background: rgba(0,0,0,.22);
+      color: #fff;
+      border-radius: 999px;
+      width: 36px;
+      height: 36px;
+      cursor: pointer;
+    }
+
+    footer { max-width: 1180px; margin: 0 auto; padding: 0 20px 40px; color: var(--muted); font-size: 12px; }
+
+    @media (max-width: 820px) {
+      .hero { min-height: 460px; padding: 32px 20px; }
+      .team-strip { grid-template-columns: 1fr; gap: 6px; }
+      .team,
+      .team.away { justify-content: flex-start; text-align: left; flex-direction: row; }
+      .team.away img { order: 0; }
+      .team.away div { order: 1; }
+      .versus { display: none; }
+      .grid.two, .grid.three, .grid.four { grid-template-columns: 1fr; }
+      .budget { grid-template-columns: 86px 1fr; }
+      .budget strong { grid-column: 1 / -1; }
+      .source-list { columns: 1; }
+      .player-dot { min-width: 72px; }
+      section { overflow-x: auto; }
+      table { min-width: 640px; }
+      .roster-table { min-width: 980px; }
+      .staff-list { grid-template-columns: 1fr; }
+      .player-card { grid-template-columns: 1fr; max-height: 92vh; overflow-y: auto; }
+      .card-photo { min-height: 320px; }
+      .stat-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    }
+
+    @media (max-width: 640px) {
+      main { padding-left: 12px; padding-right: 12px; }
+      section { padding: 18px 14px; }
+      .budget {
+        grid-template-columns: minmax(0, 1fr) auto;
+        gap: 8px 12px;
+        align-items: start;
+        padding: 14px;
+        margin: 10px 0;
+        border: 1px solid rgba(217, 226, 223, .95);
+        border-radius: 8px;
+        background: rgba(255,255,255,.86);
+      }
+      .budget strong {
+        grid-column: 1;
+        grid-row: 1;
+        font-size: 22px;
+        line-height: 1.1;
+      }
+      .budget > div {
+        grid-column: 1 / -1;
+        grid-row: 2;
+        min-width: 0;
+      }
+      .budget > span {
+        grid-column: 2;
+        grid-row: 1;
+        align-self: center;
+        justify-self: end;
+        white-space: nowrap;
+      }
+      .budget b { margin-bottom: 8px; }
+      .bar { height: 10px; }
+    }
+  </style>
+</head>
+<body>
+  <header class="hero">
+    <div class="hero-inner">
+      <div class="eyebrow">2026 世界杯 C 组 · 赛前观赛与购彩分析</div>
+      <h1>巴西 vs 摩洛哥</h1>
+      <p class="subtitle">北京时间 2026 年 6 月 14 日 06:00，美国纽约/新泽西大都会人寿体育场。结论部分为赛前推断，不构成确定性投注承诺。</p>
+      <div class="team-strip" aria-label="双方队伍">
+        <div class="team">
+          <img src="https://r2.thesportsdb.com/images/media/team/badge/jl6dip1726167280.png" alt="巴西队徽">
+          <div><strong>巴西</strong><span>FIFA 排名第 6 · 总身价约人民币 72.63 亿元</span></div>
+        </div>
+        <div class="versus">VS</div>
+        <div class="team away">
+          <div><strong>摩洛哥</strong><span>FIFA 排名第 8 · 总身价约人民币 38.99 亿元</span></div>
+          <img src="https://r2.thesportsdb.com/images/media/team/badge/hbmwkj1731791275.png" alt="摩洛哥队徽">
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <div class="notice">
+      本报告更新于 2026 年 6 月 12 日。球员身价按欧洲央行 2026 年 6 月 10 日参考汇率 <strong>1 欧元 = 人民币 7.8243 元</strong>折算。中国体彩网实时固定奖金接口在当前远程环境返回 403，未能核验本场中国体彩固定奖金；到店购彩前请以销售终端显示的<strong>固定奖金、让球数和停售时间</strong>为准。
+    </div>
+
+    <section>
+      <h2>一页结论</h2>
+      <div class="grid four">
+        <div class="metric green"><b>巴西小优</b><span>市场去水后约 57% 胜率，阵容深度明显领先。</span></div>
+        <div class="metric gold"><b>防平防小胜</b><span>平局去水后约 26%，巴西一球小胜是主线风险点。</span></div>
+        <div class="metric blue"><b>推荐比分</b><span>主推 2-1，其次 1-0；1-1 作为小额防守。</span></div>
+        <div class="metric red"><b>风险提示</b><span>摩洛哥转换进攻强，且巴西赛前存在内马尔（Neymar，马儿）状态不满格的变量。</span></div>
+      </div>
+      <div class="pillbar">
+        <span class="tag good">已核验：赛程与赔率</span>
+        <span class="tag good">已核验：完整名单与身价</span>
+        <span class="tag warn">推断：首发与比分</span>
+        <span class="tag risk">未核验：中国体彩本场固定奖金</span>
+      </div>
+    </section>
+
+    <section>
+      <h2>赛事背景</h2>
+      <div class="grid three">
+        <div class="text-card">
+          <h3>赛制影响</h3>
+          <p>2026 世界杯扩军至 <span class="read-highlight">48 队</span>，共 <span class="read-highlight">12 个小组</span>；每组前两名和 <span class="read-highlight">8 个成绩最好的小组第三</span>进入 32 强。C 组有巴西、摩洛哥、苏格兰、海地。</p>
+        </div>
+        <div class="text-card">
+          <h3>小组定位</h3>
+          <p><span class="read-highlight">巴西是小组头号热门</span>，摩洛哥通常被视为第二出线热门。首轮直接交手会显著影响小组第一归属。</p>
+        </div>
+        <div class="text-card">
+          <h3>比赛时间</h3>
+          <p>官方/ESPN 赛程为美国东部时间 6 月 13 日 18:00，对应 <span class="read-highlight">北京时间 6 月 14 日 06:00</span>。场地为大都会人寿体育场。</p>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>双方队伍速览</h2>
+      <div class="grid two">
+        <div>
+          <h3>巴西</h3>
+          <p>世界杯五冠王，历史上从未缺席世界杯正赛。本届由卡洛·安切洛蒂（Carlo Ancelotti，安帅/安胖）执教，核心进攻资源集中在 <span class="read-highlight">维尼修斯·儒尼奥尔</span>、拉菲尼亚、马特乌斯·库尼亚、内马尔等人。</p>
+          <p>阵容总身价约 <span class="read-highlight">人民币 72.63 亿元</span>，攻击线身价占比最高。主要优势是边路一对一、定位球执行点多、后场中卫经验充足。</p>
+        </div>
+        <div>
+          <h3>摩洛哥</h3>
+          <p>2022 年成为首支进入世界杯四强的非洲球队。本届由穆罕默德·瓦赫比（Mohamed Ouahbi）执教，<span class="read-highlight">阿什拉夫·哈基米</span>、布拉欣·迪亚斯、索菲扬·阿姆拉巴特是关注核心。</p>
+          <p>阵容总身价约 <span class="read-highlight">人民币 38.99 亿元</span>，平均年龄更低。主要优势是防守组织、边后卫推进和转换速度。</p>
+        </div>
+      </div>
+      <table>
+        <thead><tr><th>项目</th><th>巴西</th><th>摩洛哥</th></tr></thead>
+        <tbody>
+          <tr><td>FIFA 排名</td><td>第 6</td><td>第 8</td></tr>
+          <tr><td>总身价</td><td>约人民币 72.63 亿元</td><td>约人民币 38.99 亿元</td></tr>
+          <tr><td>世界杯最佳成绩</td><td>冠军 5 次</td><td>第四名，2022 年</td></tr>
+          <tr><td>历史交手</td><td>正式/友谊赛合计：1 胜 1 负</td><td>2023 年友谊赛 2-1 击败巴西</td></tr>
+          <tr><td>世界杯交手</td><td>1998 年巴西 3-0 摩洛哥</td><td>1998 年同组，负于巴西</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section id="rosters">
+      <h2>完整名单与球员卡</h2>
+      <p class="split-note">名单、年龄、身高、体重来自 ESPN 当前 roster 接口；俱乐部、身价与部分球员照片来自 Transfermarkt；球员卡照片优先使用 TheSportsDB cutout 图，未覆盖球员使用 Transfermarkt 近况照片。头像列中，所有球员均显示真实人物照片，头像和姓名均可点击查看球员卡。巴西教练组来自 DAZN，摩洛哥主教练来自 beIN SPORTS。</p>
+      <div class="tabs" role="tablist" aria-label="球队名单切换">
+        <button class="tab-button active" data-team="brazil" type="button">巴西队</button>
+        <button class="tab-button" data-team="morocco" type="button">摩洛哥队</button>
+      </div>
+      <div id="roster-panels"></div>
+    </section>
+
+    <section>
+      <h2>预计首发与战术</h2>
+      <div class="grid two">
+        <div>
+          <h3>巴西预计 4-2-3-1 / 4-4-2</h3>
+          <div class="pitch" aria-label="巴西预计首发">
+            <div class="lineup-row"><button class="player-dot" data-team="brazil" data-number="9" type="button">库尼亚</button></div>
+            <div class="lineup-row"><button class="player-dot" data-team="brazil" data-number="22" type="button">马丁内利</button><button class="player-dot" data-team="brazil" data-number="7" type="button">维尼修斯</button><button class="player-dot" data-team="brazil" data-number="11" type="button">拉菲尼亚</button></div>
+            <div class="lineup-row"><button class="player-dot" data-team="brazil" data-number="8" type="button">吉马良斯</button><button class="player-dot" data-team="brazil" data-number="5" type="button">卡塞米罗</button></div>
+            <div class="lineup-row"><button class="player-dot" data-team="brazil" data-number="6" type="button">阿莱士·桑德罗</button><button class="player-dot" data-team="brazil" data-number="3" type="button">加布里埃尔</button><button class="player-dot" data-team="brazil" data-number="4" type="button">马尔基尼奥斯</button><button class="player-dot" data-team="brazil" data-number="13" type="button">达尼洛</button><button class="player-dot" data-team="brazil" data-number="1" type="button">阿利松</button></div>
+          </div>
+          <p class="split-note">推断依据：RotoWire 预测首发、The Standard 赛前伤停信息，以及 ESPN/Transfermarkt 当前 26 人名单。早期预测中的韦斯利（Wesley）未出现在 ESPN/Transfermarkt 当前名单中，因此右路防守位改为达尼洛（Danilo）。</p>
+        </div>
+        <div>
+          <h3>摩洛哥预计 4-3-3</h3>
+          <div class="pitch" aria-label="摩洛哥预计首发">
+            <div class="lineup-row"><button class="player-dot" data-team="morocco" data-number="7" type="button">塔尔比</button><button class="player-dot" data-team="morocco" data-number="20" type="button">埃尔卡比</button><button class="player-dot" data-team="morocco" data-number="10" type="button">迪亚斯</button></div>
+            <div class="lineup-row"><button class="player-dot" data-team="morocco" data-number="24" type="button">艾纳维</button><button class="player-dot" data-team="morocco" data-number="11" type="button">赛巴里</button><button class="player-dot" data-team="morocco" data-number="23" type="button">汉努斯</button></div>
+            <div class="lineup-row"><button class="player-dot" data-team="morocco" data-number="3" type="button">马兹拉维</button><button class="player-dot" data-team="morocco" data-number="18" type="button">沙迪·里亚德</button><button class="player-dot" data-team="morocco" data-number="14" type="button">迪奥普</button><button class="player-dot" data-team="morocco" data-number="2" type="button">哈基米</button></div>
+            <div class="lineup-row"><button class="player-dot" data-team="morocco" data-number="1" type="button">布努</button></div>
+          </div>
+          <p class="split-note">RotoWire 原始预测包含阿卜德·埃扎洛祖利（Abde Ezzalzouli，阿布德）与纳耶夫·阿格尔德（Nayef Aguerd）；The Standard 赛前消息称二人存在退出/伤情风险，因此这里将左路与中卫位置调整为候选方案。正式首发需等赛前名单确认。</p>
+        </div>
+      </div>
+      <table>
+        <thead><tr><th>战术问题</th><th>观察点</th><th>对购彩判断的影响</th></tr></thead>
+        <tbody>
+          <tr><td>巴西能否快速领先</td><td>维尼修斯·儒尼奥尔（Vinícius Júnior，维尼/小熊）是否能压制阿什拉夫·哈基米（Achraf Hakimi，哈基米）身后的空间。</td><td>若 20 分钟内压制明显，巴西胜与 2-0/2-1 更顺；若久攻不下，平局风险上升。</td></tr>
+          <tr><td>摩洛哥转换质量</td><td>布拉欣·迪亚斯（Brahim Díaz，迪亚斯）与阿什拉夫·哈基米（Achraf Hakimi，哈基米）能否在巴西边后卫身后形成快速推进。</td><td>若反击威胁强，巴西零封概率下降，2-1 优于 1-0。</td></tr>
+          <tr><td>定位球</td><td>两队都有高点和任意球执行者，首粒进球可能来自定位球二点球。</td><td>比分投注不宜过窄，保留 1-1 防守注。</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section>
+      <h2>赔率与概率</h2>
+      <div class="grid three">
+        <div class="metric green"><b>巴西胜 56.9%</b><span>DraftKings 胜平负去水后估算。</span></div>
+        <div class="metric gold"><b>平局 25.6%</b><span>小组首战谨慎，平局不可忽略。</span></div>
+        <div class="metric blue"><b>摩洛哥胜 17.5%</b><span>冷门来自转换效率和巴西失误。</span></div>
+      </div>
+      <table>
+        <thead><tr><th>市场</th><th>开盘</th><th>当前</th><th>解读</th></tr></thead>
+        <tbody>
+          <tr><td>胜平负</td><td>巴西 -175 / 平 +310 / 摩洛哥 +500</td><td>巴西 -145 / 平 +275 / 摩洛哥 +450</td><td>巴西热度较开盘下降，平局与摩洛哥方向受到更多支持。</td></tr>
+          <tr><td>让球</td><td>巴西 -0.5</td><td>巴西 -0.5，-165</td><td>市场仍要求巴西必须取胜，但价格比单纯胜负更贵。</td></tr>
+          <tr><td>大小球</td><td>2.5 球</td><td>大球 +100 / 小球 -130</td><td>市场略偏小球，支持 1-0、2-0、1-1、2-1 区间。</td></tr>
+        </tbody>
+      </table>
+      <p class="split-note">说明：以上为 ESPN 页面展示的 DraftKings 赔率，经 sports-skills betting 计算隐含概率并手动去除庄家水位。中国体彩固定奖金未能远程核验。</p>
+      <div class="odds-guide"><b>规则速读：</b>胜平负是判断 90 分钟常规时间内主胜、平局或客胜；美式赔率 <b>-145</b> 表示投注 145 可赢 100，<b>+310</b> 表示投注 100 可赢 310；<b>-0.5</b> 是让球盘，巴西让 0.5 球时必须赢球才算赢盘；<b>2.5 球</b> 是大小球分界，全场 3 球及以上为大球，0-2 球为小球。</div>
+    </section>
+
+    <section>
+      <h2>100 元购彩方案</h2>
+      <p>本方案按娱乐预算设计，不追求单票高回报。每注 2 元，合计 50 注。到店时请先核对：本场是否开售单关、让球数是否为巴西让 1 球、比分固定奖金是否仍可接受。</p>
+
+      <div class="budget">
+        <strong>50 元</strong>
+        <div><b>胜平负：巴西胜</b><div class="bar"><div class="fill" style="width:50%"></div></div></div>
+        <span>25 注</span>
+      </div>
+      <div class="budget">
+        <strong>24 元</strong>
+        <div><b>让球胜平负：巴西让 1 球时选“让平”</b><div class="bar"><div class="fill gold" style="width:24%"></div></div></div>
+        <span>12 注</span>
+      </div>
+      <div class="budget">
+        <strong>14 元</strong>
+        <div><b>比分：巴西 2-1 摩洛哥</b><div class="bar"><div class="fill blue" style="width:14%"></div></div></div>
+        <span>7 注</span>
+      </div>
+      <div class="budget">
+        <strong>8 元</strong>
+        <div><b>比分：巴西 1-0 摩洛哥</b><div class="bar"><div class="fill blue" style="width:8%"></div></div></div>
+        <span>4 注</span>
+      </div>
+      <div class="budget">
+        <strong>4 元</strong>
+        <div><b>比分：1-1</b><div class="bar"><div class="fill red" style="width:4%"></div></div></div>
+        <span>2 注</span>
+      </div>
+
+      <table>
+        <thead><tr><th>购彩前检查</th><th>处理方式</th></tr></thead>
+        <tbody>
+          <tr><td>如果体彩终端显示巴西让 1 球</td><td>保留“让平”，对应巴西净胜 1 球，即 1-0、2-1、3-2 等路径。</td></tr>
+          <tr><td>如果让球不是巴西让 1 球</td><td>暂停让球部分，将 24 元转入胜平负巴西胜 16 元、比分 2-1 8 元。</td></tr>
+          <tr><td>如果赛前内马尔（Neymar，马儿）首发且摩洛哥后防伤停确认</td><td>可把 1-1 的 4 元转到 2-0 或 3-1，但仍不建议大幅加注比分。</td></tr>
+          <tr><td>如果巴西首发保守或赔率继续明显下调</td><td>保持原方案，不追高；不要因热门赔率下降追加预算。</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section>
+      <h2>风险清单</h2>
+      <div class="grid three">
+        <div class="metric red"><b>首发不确定</b><span>正式首发通常赛前约 1 小时确认；当前阵容为预测。</span></div>
+        <div class="metric gold"><b>摩洛哥伤停</b><span>纳耶夫·阿格尔德（Nayef Aguerd）、阿卜德·埃扎洛祖利（Abde Ezzalzouli，阿布德）等信息有变动，需赛前复核。</span></div>
+        <div class="metric blue"><b>赔率差异</b><span>海外赔率和中国体彩固定奖金不同，不能直接等同。</span></div>
+      </div>
+      <p class="split-note">纪律建议：本场预算上限 100 元，不追加；若到店发现固定奖金明显低于预期或让球数变化较大，优先减少比分投注，而不是扩大总预算。</p>
+    </section>
+
+    <section>
+      <h2>引用来源</h2>
+      <ul class="source-list">
+        <li><a href="https://www.fifa.com/en/tournaments/mens/worldcup/canadamexicousa2026/articles/groups-how-teams-qualify-tie-breakers">FIFA：2026 世界杯小组出线规则</a></li>
+        <li><a href="https://www.espn.com/soccer/odds/_/gameId/760419">ESPN：Brazil vs Morocco 赔率与赛程</a></li>
+        <li><a href="https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world/teams/205/roster">ESPN roster API：巴西阵容基础资料</a></li>
+        <li><a href="https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world/teams/2869/roster">ESPN roster API：摩洛哥阵容基础资料</a></li>
+        <li><a href="https://www.transfermarkt.us/brazil/kader/verein/3439">Transfermarkt：巴西大名单、俱乐部、身价与部分球员照片</a></li>
+        <li><a href="https://www.transfermarkt.us/morocco/kader/verein/3575">Transfermarkt：摩洛哥大名单、俱乐部、身价与部分球员照片</a></li>
+        <li><a href="https://www.thesportsdb.com/">TheSportsDB：预计首发球员 cutout 图与队徽素材</a></li>
+        <li><a href="https://www.ecb.europa.eu/stats/policy_and_exchange_rates/euro_reference_exchange_rates/html/eurofxref-graph-cny.en.html">欧洲央行：欧元兑人民币参考汇率</a></li>
+        <li><a href="https://www.dazn.com/en-US/news/soccer/brazil-squad-list-fifa-world-cup-26-captain-jersey-numbers-carlo-ancelottis-coaching-staff/r0rhnvwyhurj1o2nossz5h4ck">DAZN：巴西世界杯大名单与教练组</a></li>
+        <li><a href="https://www.beinsports.com/en-us/soccer/fifa-world-cup-2026/articles/mohamed-ouahbi-s-official-morocco-squad-for-the-2026-fifa-world-cup-2026-05-26">beIN SPORTS：摩洛哥世界杯大名单</a></li>
+        <li><a href="https://www.rotowire.com/soccer/article/2026-world-cup-group-c-preview-brazil-morocco-scotland-haiti-tactics-lineups-set-pieces-odds-109040">RotoWire：C 组战术与预计首发</a></li>
+        <li><a href="https://www.standard.co.uk/sport/football/brazil-vs-morocco-prediction-kick-off-time-tv-live-stream-team-news-latest-h2h-results-odds-world-cup-2026-preview-b1285580.html">The Standard：赛前消息、伤停与交手记录</a></li>
+        <li><a href="https://www.sporttery.cn/bzzx/20210118/3060334.html?gid=3">竞彩网：单场让球胜平负游戏规则</a></li>
+        <li><a href="https://www.sporttery.cn/jc/jsq/zqspf/">竞彩网：胜平负/让球胜平负计算器入口</a></li>
+      </ul>
+    </section>
+  </main>
+
+  <div class="modal" id="player-modal" aria-hidden="true">
+    <div class="player-card" role="dialog" aria-modal="true" aria-labelledby="card-name">
+      <button class="close-modal" type="button" aria-label="关闭球员卡">×</button>
+      <div class="card-photo"><img id="card-photo" alt="" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw=="><div class="card-number" id="card-number"></div></div>
+      <div class="card-body">
+        <div class="card-kicker" id="card-kicker"></div>
+        <h2 class="card-name-cn" id="card-name"></h2>
+        <div class="card-name-en" id="card-name-en"></div>
+        <div class="card-role" id="card-role"></div>
+        <div class="stat-grid" id="card-stats"></div>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    报告生成说明：事实信息优先采用 FIFA、ESPN、Transfermarkt、竞彩网等可核验来源；首发、战术、比分和购彩方案均为赛前推断。请理性购彩，未成年人不得购买彩票。
+  </footer>
+
+  <script>
+    const SQUADS = {"brazil":[{"team":"brazil","teamCn":"巴西","number":"23","name":"Ederson","cnName":"埃德森","nickname":"","position":"门将","age":32,"heightCm":188,"weightKg":89,"nationality":"巴西","club":"费内巴切","marketRmb":"约 7,824 万元","photo":"https://img.a.transfermarkt.technology/portrait/big/238223-1765380595.jpg?lm=1","status":"替补/轮换","role":"替补或轮换球员，是否出场取决于正式首发和比赛走势。"},{"team":"brazil","teamCn":"巴西","number":"1","name":"Alisson Becker","cnName":"阿利松·贝克尔","nickname":"阿利松","position":"门将","age":33,"heightCm":193,"weightKg":91,"nationality":"巴西","club":"利物浦","marketRmb":"约 1.17 亿元","photo":"https://r2.thesportsdb.com/images/media/player/cutout/8amq961757087569.png","status":"预计首发","role":"预计首发门将，负责后场出球和高空球处理。"},{"team":"brazil","teamCn":"巴西","number":"12","name":"Weverton","cnName":"韦弗顿","nickname":"","position":"门将","age":38,"heightCm":188,"weightKg":83,"nationality":"巴西","club":"格雷米奥","marketRmb":"约 548 万元","photo":"https://img.a.transfermarkt.technology/portrait/big/69400-1751657170.jpg?lm=1","status":"替补/轮换","role":"替补或轮换球员，是否出场取决于正式首发和比赛走势。"},{"team":"brazil","teamCn":"巴西","number":"6","name":"Alex Sandro","cnName":"阿莱士·桑德罗","nickname":"","position":"左后卫","age":35,"heightCm":180,"weightKg":82,"nationality":"巴西","club":"弗拉门戈","marketRmb":"约 782 万元","photo":"https://r2.thesportsdb.com/images/media/player/cutout/e24f0a1750920769.png","status":"预计首发","role":"预计首发左后卫，偏防守保护。"},{"team":"brazil","teamCn":"巴西","number":"15","name":"Léo Pereira","cnName":"莱奥·佩雷拉","nickname":"","position":"中后卫","age":30,"heightCm":188,"weightKg":79,"nationality":"巴西","club":"弗拉门戈","marketRmb":"约 9,389 万元","photo":"https://img.a.transfermarkt.technology/portrait/big/288431-1751370674.jpg?lm=1","status":"替补/轮换","role":"替补或轮换球员，是否出场取决于正式首发和比赛走势。"},{"team":"brazil","teamCn":"巴西","number":"4","name":"Marquinhos","cnName":"马尔基尼奥斯","nickname":"马尔基尼奥斯","position":"中后卫","age":32,"heightCm":183,"weightKg":78,"nationality":"巴西","club":"巴黎圣日耳曼","marketRmb":"约 2.19 亿元","photo":"https://r2.thesportsdb.com/images/media/player/cutout/7x9gtl1766335348.png","status":"预计首发","role":"预计首发中后卫，队长人选之一。"},{"team":"brazil","teamCn":"巴西","number":"13","name":"Danilo","cnName":"达尼洛","nickname":"","position":"中后卫","age":34,"heightCm":183,"weightKg":83,"nationality":"巴西","club":"弗拉门戈","marketRmb":"约 1,565 万元","photo":"https://r2.thesportsdb.com/images/media/player/cutout/6hr4w81750454528.png","status":"预计首发","role":"预计首发右路防守点，实际位置需赛前确认。"},{"team":"brazil","teamCn":"巴西","number":"16","name":"Douglas Santos","cnName":"道格拉斯·桑托斯","nickname":"","position":"左后卫","age":32,"heightCm":173,"weightKg":68,"nationality":"巴西","club":"圣彼得堡泽尼特","marketRmb":"约 5,868 万元","photo":"https://img.a.transfermarkt.technology/portrait/big/220793-1756746479.png?lm=1","status":"替补/轮换","role":"替补或轮换球员，是否出场取决于正式首发和比赛走势。"},{"team":"brazil","teamCn":"巴西","number":"3","name":"Gabriel Magalhães","cnName":"加布里埃尔·马加良斯","nickname":"","position":"中后卫","age":28,"heightCm":190,"weightKg":92,"nationality":"巴西","club":"阿森纳","marketRmb":"约 5.87 亿元","photo":"https://r2.thesportsdb.com/images/media/player/cutout/trz5x71769331076.png","status":"预计首发","role":"预计首发中后卫，定位球高点。"},{"team":"brazil","teamCn":"巴西","number":"14","name":"Bremer","cnName":"布雷默","nickname":"","position":"中后卫","age":29,"heightCm":188,"weightKg":87,"nationality":"巴西","club":"尤文图斯","marketRmb":"约 2.74 亿元","photo":"https://img.a.transfermarkt.technology/portrait/big/516716-1725531520.jpg?lm=1","status":"替补/轮换","role":"替补或轮换球员，是否出场取决于正式首发和比赛走势。"},{"team":"brazil","teamCn":"巴西","number":"24","name":"Roger Ibañez","cnName":"罗热·伊巴涅斯","nickname":"","position":"中后卫","age":27,"heightCm":185,"weightKg":79,"nationality":"巴西","club":"吉达国民","marketRmb":"约 1.41 亿元","photo":"https://img.a.transfermarkt.technology/portrait/big/524481-1663581987.jpg?lm=1","status":"替补/轮换","role":"替补或轮换球员，是否出场取决于正式首发和比赛走势。"},{"team":"brazil","teamCn":"巴西","number":"5","name":"Casemiro","cnName":"卡塞米罗","nickname":"胖虎","position":"防守型中场","age":34,"heightCm":185,"weightKg":83,"nationality":"巴西","club":"曼彻斯特联","marketRmb":"约 4,695 万元","photo":"https://r2.thesportsdb.com/images/media/player/cutout/ydr3j41766826524.png","status":"预计首发","role":"预计首发防守型中场，负责中路保护。"},{"team":"brazil","teamCn":"巴西","number":"17","name":"Fabinho","cnName":"法比尼奥","nickname":"","position":"防守型中场","age":32,"heightCm":188,"weightKg":78,"nationality":"巴西","club":"吉达联合","marketRmb":"约 9,389 万元","photo":"https://img.a.transfermarkt.technology/portrait/big/225693-1703282636.png?lm=1","status":"替补/轮换","role":"替补或轮换球员，是否出场取决于正式首发和比赛走势。"},{"team":"brazil","teamCn":"巴西","number":"8","name":"Bruno Guimarães","cnName":"布鲁诺·吉马良斯","nickname":"吉马良斯","position":"中场","age":28,"heightCm":183,"weightKg":78,"nationality":"巴西","club":"纽卡斯尔联","marketRmb":"约 5.48 亿元","photo":"https://r2.thesportsdb.com/images/media/player/cutout/qr8gk01766824971.png","status":"预计首发","role":"预计首发中场，连接推进与防守覆盖。"},{"team":"brazil","teamCn":"巴西","number":"20","name":"Lucas Paquetá","cnName":"卢卡斯·帕奎塔","nickname":"","position":"前腰","age":28,"heightCm":183,"weightKg":73,"nationality":"巴西","club":"弗拉门戈","marketRmb":"约 2.50 亿元","photo":"https://img.a.transfermarkt.technology/portrait/big/444523-1780929763.jpg?lm=1","status":"替补/轮换","role":"替补或轮换球员，是否出场取决于正式首发和比赛走势。"},{"team":"brazil","teamCn":"巴西","number":"2","name":"Éderson","cnName":"埃德松","nickname":"","position":"中场","age":26,"heightCm":183,"weightKg":83,"nationality":"巴西","club":"亚特兰大","marketRmb":"约 3.52 亿元","photo":"https://img.a.transfermarkt.technology/portrait/big/607854-1646648856.jpg?lm=1","status":"替补/轮换","role":"替补或轮换球员，是否出场取决于正式首发和比赛走势。"},{"team":"brazil","teamCn":"巴西","number":"18","name":"Danilo","cnName":"达尼洛","nickname":"","position":"中场","age":25,"heightCm":178,"weightKg":69,"nationality":"巴西","club":"博塔弗戈","marketRmb":"约 2.50 亿元","photo":"https://img.a.transfermarkt.technology/portrait/big/808509-1780390517.jpg?lm=1","status":"替补/轮换","role":"替补或轮换球员，是否出场取决于正式首发和比赛走势。"},{"team":"brazil","teamCn":"巴西","number":"10","name":"Neymar","cnName":"内马尔","nickname":"马儿","position":"前腰","age":34,"heightCm":175,"weightKg":73,"nationality":"巴西","club":"桑托斯","marketRmb":"约 6,259 万元","photo":"https://img.a.transfermarkt.technology/portrait/big/68290-1692601435.jpg?lm=1","status":"替补/轮换","role":"替补或轮换球员，是否出场取决于正式首发和比赛走势。"},{"team":"brazil","teamCn":"巴西","number":"11","name":"Raphinha","cnName":"拉菲尼亚","nickname":"拉菲尼亚","position":"左边锋","age":29,"heightCm":175,"weightKg":63,"nationality":"巴西","club":"巴塞罗那","marketRmb":"约 5.48 亿元","photo":"https://r2.thesportsdb.com/images/media/player/cutout/w94spe1726510018.png","status":"预计首发","role":"预计首发右路进攻点和定位球执行者。"},{"team":"brazil","teamCn":"巴西","number":"7","name":"Vinícius Júnior","cnName":"维尼修斯·儒尼奥尔","nickname":"维尼 / 小熊","position":"左边锋","age":25,"heightCm":175,"weightKg":77,"nationality":"巴西","club":"皇家马德里","marketRmb":"约 10.95 亿元","photo":"https://r2.thesportsdb.com/images/media/player/cutout/ejuxsh1750271859.png","status":"预计首发","role":"预计首发核心边锋，主要爆点。"},{"team":"brazil","teamCn":"巴西","number":"9","name":"Matheus Cunha","cnName":"马特乌斯·库尼亚","nickname":"","position":"左边锋","age":27,"heightCm":183,"weightKg":76,"nationality":"巴西","club":"曼彻斯特联","marketRmb":"约 5.87 亿元","photo":"https://r2.thesportsdb.com/images/media/player/cutout/29x61e1762020281.png","status":"预计首发","role":"预计首发中锋/前场支点。"},{"team":"brazil","teamCn":"巴西","number":"22","name":"Gabriel Martinelli","cnName":"加布里埃尔·马丁内利","nickname":"小马丁","position":"左边锋","age":24,"heightCm":178,"weightKg":73,"nationality":"巴西","club":"阿森纳","marketRmb":"约 3.52 亿元","photo":"https://r2.thesportsdb.com/images/media/player/cutout/pnwfls1769331152.png","status":"预计首发","role":"预计首发左路/前场轮转点。"},{"team":"brazil","teamCn":"巴西","number":"25","name":"Igor Thiago","cnName":"伊戈尔·蒂亚戈","nickname":"","position":"中锋","age":24,"heightCm":190,"weightKg":94,"nationality":"巴西","club":"布伦特福德","marketRmb":"约 5.09 亿元","photo":"https://img.a.transfermarkt.technology/portrait/big/739443-1770372295.jpg?lm=1","status":"替补/轮换","role":"替补或轮换球员，是否出场取决于正式首发和比赛走势。"},{"team":"brazil","teamCn":"巴西","number":"21","name":"Luiz Henrique","cnName":"路易斯·恩里克","nickname":"","position":"右边锋","age":25,"heightCm":183,"weightKg":77,"nationality":"巴西","club":"圣彼得堡泽尼特","marketRmb":"约 1.88 亿元","photo":"https://img.a.transfermarkt.technology/portrait/big/800175-1756746940.png?lm=1","status":"替补/轮换","role":"替补或轮换球员，是否出场取决于正式首发和比赛走势。"},{"team":"brazil","teamCn":"巴西","number":"19","name":"Endrick","cnName":"恩德里克","nickname":"恩德里克","position":"中锋","age":19,"heightCm":173,"weightKg":67,"nationality":"巴西","club":"里昂","marketRmb":"约 3.13 亿元","photo":"https://img.a.transfermarkt.technology/portrait/big/971570-1723665994.jpg?lm=1","status":"替补/轮换","role":"替补或轮换球员，是否出场取决于正式首发和比赛走势。"},{"team":"brazil","teamCn":"巴西","number":"26","name":"Rayan","cnName":"拉扬","nickname":"","position":"右边锋","age":19,"heightCm":188,"weightKg":87,"nationality":"巴西","club":"伯恩茅斯","marketRmb":"约 4.69 亿元","photo":"https://img.a.transfermarkt.technology/portrait/big/1012564-1780390891.jpg?lm=1","status":"替补/轮换","role":"替补或轮换球员，是否出场取决于正式首发和比赛走势。"}],"morocco":[{"team":"morocco","teamCn":"摩洛哥","number":"1","name":"Yassine Bounou","cnName":"亚辛·布努","nickname":"布努 / 博诺","position":"门将","age":35,"heightCm":193,"weightKg":77,"nationality":"摩洛哥","club":"利雅得新月","marketRmb":"约 2,347 万元","photo":"https://r2.thesportsdb.com/images/media/player/cutout/u0pjgc1658436080.png","status":"预计首发","role":"预计首发门将，反击体系中的第一出球点。"},{"team":"morocco","teamCn":"摩洛哥","number":"22","name":"Ahmed Reda Tagnaouti","cnName":"艾哈迈德·雷达·塔格纳乌蒂","nickname":"","position":"门将","age":30,"heightCm":193,"weightKg":83,"nationality":"摩洛哥","club":"拉巴特皇家武装","marketRmb":"约 782 万元","photo":"https://img.a.transfermarkt.technology/portrait/big/238997-1668080784.jpg?lm=1","status":"替补/轮换","role":"替补或轮换球员，是否出场取决于正式首发和比赛走势。"},{"team":"morocco","teamCn":"摩洛哥","number":"12","name":"Munir El Kajoui","cnName":"穆尼尔·埃尔卡朱伊","nickname":"","position":"门将","age":37,"heightCm":190,"weightKg":78,"nationality":"摩洛哥","club":"贝尔卡尼","marketRmb":"约 469 万元","photo":"https://img.a.transfermarkt.technology/portrait/big/97925-1685533226.JPG?lm=1","status":"替补/轮换","role":"替补或轮换球员，是否出场取决于正式首发和比赛走势。"},{"team":"morocco","teamCn":"摩洛哥","number":"14","name":"Issa Diop","cnName":"伊萨·迪奥普","nickname":"","position":"中后卫","age":29,"heightCm":193,"weightKg":87,"nationality":"摩洛哥","club":"富勒姆","marketRmb":"约 6,259 万元","photo":"https://r2.thesportsdb.com/images/media/player/cutout/e758ud1757070461.png","status":"预计首发","role":"预计首发中后卫候选，身体对抗强。"},{"team":"morocco","teamCn":"摩洛哥","number":"3","name":"Noussair Mazraoui","cnName":"努塞尔·马兹拉维","nickname":"","position":"右后卫","age":28,"heightCm":183,"weightKg":78,"nationality":"摩洛哥","club":"曼彻斯特联","marketRmb":"约 1.41 亿元","photo":"https://r2.thesportsdb.com/images/media/player/cutout/o58oaq1766826898.png","status":"预计首发","role":"预计首发边后卫，可左右路调整。"},{"team":"morocco","teamCn":"摩洛哥","number":"2","name":"Achraf Hakimi","cnName":"阿什拉夫·哈基米","nickname":"哈基米","position":"右后卫","age":27,"heightCm":180,"weightKg":78,"nationality":"摩洛哥","club":"巴黎圣日耳曼","marketRmb":"约 6.26 亿元","photo":"https://r2.thesportsdb.com/images/media/player/cutout/oqu69c1766335243.png","status":"预计首发","role":"预计首发右后卫，摩洛哥推进核心。"},{"team":"morocco","teamCn":"摩洛哥","number":"5","name":"Nayef Aguerd","cnName":"纳耶夫·阿格尔德","nickname":"","position":"中后卫","age":30,"heightCm":190,"weightKg":79,"nationality":"摩洛哥","club":"马赛","marketRmb":"约 1.17 亿元","photo":"https://img.a.transfermarkt.technology/portrait/big/361914-1659355782.jpg?lm=1","status":"替补/轮换","role":"替补或轮换球员，是否出场取决于正式首发和比赛走势。"},{"team":"morocco","teamCn":"摩洛哥","number":"26","name":"Anass Salah-Eddine","cnName":"阿纳斯·萨拉赫-埃丁","nickname":"","position":"左后卫","age":24,"heightCm":180,"weightKg":66,"nationality":"摩洛哥","club":"PSV埃因霍温","marketRmb":"约 9,389 万元","photo":"https://img.a.transfermarkt.technology/portrait/big/485584-1766406432.jpg?lm=1","status":"替补/轮换","role":"替补或轮换球员，是否出场取决于正式首发和比赛走势。"},{"team":"morocco","teamCn":"摩洛哥","number":"18","name":"Chadi Riad","cnName":"沙迪·里亚德","nickname":"","position":"中后卫","age":22,"heightCm":185,"weightKg":78,"nationality":"摩洛哥","club":"水晶宫","marketRmb":"约 1.17 亿元","photo":"https://r2.thesportsdb.com/images/media/player/cutout/euw1zp1766828464.png","status":"预计首发","role":"预计首发中后卫候选，用于替代伤停不确定位置。"},{"team":"morocco","teamCn":"摩洛哥","number":"13","name":"Zakaria El Ouahdi","cnName":"扎卡里亚·埃尔瓦赫迪","nickname":"","position":"右后卫","age":24,"heightCm":170,"weightKg":68,"nationality":"摩洛哥","club":"亨克","marketRmb":"约 1.33 亿元","photo":"https://img.a.transfermarkt.technology/portrait/big/820474-1714037470.png?lm=1","status":"替补/轮换","role":"替补或轮换球员，是否出场取决于正式首发和比赛走势。"},{"team":"morocco","teamCn":"摩洛哥","number":"25","name":"Redouane Halhal","cnName":"雷杜安·哈尔哈尔","nickname":"","position":"中后卫","age":23,"heightCm":188,"weightKg":82,"nationality":"摩洛哥","club":"梅赫伦","marketRmb":"约 3,912 万元","photo":"https://img.a.transfermarkt.technology/portrait/big/913660-1726297099.jpg?lm=1","status":"替补/轮换","role":"替补或轮换球员，是否出场取决于正式首发和比赛走势。"},{"team":"morocco","teamCn":"摩洛哥","number":"19","name":"Youssef Belammari","cnName":"尤素福·贝拉马里","nickname":"","position":"左后卫","age":27,"heightCm":175,"weightKg":69,"nationality":"摩洛哥","club":"开罗国民","marketRmb":"约 939 万元","photo":"https://img.a.transfermarkt.technology/portrait/big/518804-1755166034.jpeg?lm=1","status":"替补/轮换","role":"替补或轮换球员，是否出场取决于正式首发和比赛走势。"},{"team":"morocco","teamCn":"摩洛哥","number":"4","name":"Sofyan Amrabat","cnName":"索菲扬·阿姆拉巴特","nickname":"阿姆拉巴特","position":"防守型中场","age":29,"heightCm":185,"weightKg":77,"nationality":"摩洛哥","club":"皇家贝蒂斯","marketRmb":"约 7,824 万元","photo":"https://img.a.transfermarkt.technology/portrait/big/287579-1693604574.jpg?lm=1","status":"替补/轮换","role":"替补或轮换球员，是否出场取决于正式首发和比赛走势。"},{"team":"morocco","teamCn":"摩洛哥","number":"10","name":"Brahim Díaz","cnName":"布拉欣·迪亚斯","nickname":"迪亚斯","position":"右边锋","age":26,"heightCm":170,"weightKg":68,"nationality":"摩洛哥","club":"皇家马德里","marketRmb":"约 2.74 亿元","photo":"https://r2.thesportsdb.com/images/media/player/cutout/civrzg1733653256.png","status":"预计首发","role":"预计首发进攻核心，承担最后一传。"},{"team":"morocco","teamCn":"摩洛哥","number":"8","name":"Azzedine Ounahi","cnName":"阿泽丁·乌纳希","nickname":"","position":"中场","age":26,"heightCm":183,"weightKg":64,"nationality":"摩洛哥","club":"赫罗纳","marketRmb":"约 7,824 万元","photo":"https://img.a.transfermarkt.technology/portrait/big/593482-1668080946.jpg?lm=1","status":"替补/轮换","role":"替补或轮换球员，是否出场取决于正式首发和比赛走势。"},{"team":"morocco","teamCn":"摩洛哥","number":"11","name":"Ismael Saibari","cnName":"伊斯梅尔·赛巴里","nickname":"","position":"前腰","age":25,"heightCm":185,"weightKg":81,"nationality":"摩洛哥","club":"PSV埃因霍温","marketRmb":"约 3.13 亿元","photo":"https://r2.thesportsdb.com/images/media/player/cutout/3y277g1764595447.png","status":"预计首发","role":"预计首发中场，前插和二点球能力重要。"},{"team":"morocco","teamCn":"摩洛哥","number":"24","name":"Neil El Aynaoui","cnName":"尼尔·艾纳维","nickname":"","position":"中场","age":24,"heightCm":185,"weightKg":79,"nationality":"摩洛哥","club":"罗马","marketRmb":"约 1.80 亿元","photo":"https://r2.thesportsdb.com/images/media/player/cutout/wbm4lk1758815430.png","status":"预计首发","role":"预计首发中场，负责中路衔接。"},{"team":"morocco","teamCn":"摩洛哥","number":"23","name":"Bilal El Khannouss","cnName":"比拉尔·汉努斯","nickname":"","position":"前腰","age":22,"heightCm":180,"weightKg":69,"nationality":"摩洛哥","club":"斯图加特","marketRmb":"约 2.74 亿元","photo":"https://r2.thesportsdb.com/images/media/player/cutout/ii2jau1763586312.png","status":"预计首发","role":"预计首发前腰/中场，负责肋部创造。"},{"team":"morocco","teamCn":"摩洛哥","number":"6","name":"Ayyoub Bouaddi","cnName":"阿尤布·布阿迪","nickname":"","position":"中场","age":18,"heightCm":185,"weightKg":74,"nationality":"摩洛哥","club":"里尔","marketRmb":"约 3.91 亿元","photo":"https://img.a.transfermarkt.technology/portrait/big/1097139-1741119960.jpg?lm=1","status":"替补/轮换","role":"替补或轮换球员，是否出场取决于正式首发和比赛走势。"},{"team":"morocco","teamCn":"摩洛哥","number":"15","name":"Samir El Mourabet","cnName":"萨米尔·穆拉贝特","nickname":"","position":"中场","age":20,"heightCm":188,"weightKg":72,"nationality":"摩洛哥","club":"斯特拉斯堡","marketRmb":"约 1.72 亿元","photo":"https://img.a.transfermarkt.technology/portrait/big/1130514-1780319759.jpg?lm=1","status":"替补/轮换","role":"替补或轮换球员，是否出场取决于正式首发和比赛走势。"},{"team":"morocco","teamCn":"摩洛哥","number":"20","name":"Ayoub El Kaabi","cnName":"阿尤布·埃尔卡比","nickname":"埃尔卡比","position":"中锋","age":32,"heightCm":183,"weightKg":79,"nationality":"摩洛哥","club":"奥林匹亚科斯","marketRmb":"约 3,521 万元","photo":"https://r2.thesportsdb.com/images/media/player/cutout/uq61lq1762288890.png","status":"预计首发","role":"预计首发中锋，禁区终结点。"},{"team":"morocco","teamCn":"摩洛哥","number":"9","name":"Soufiane Rahimi","cnName":"苏菲安·拉希米","nickname":"","position":"左边锋","age":30,"heightCm":180,"weightKg":74,"nationality":"摩洛哥","club":"艾因","marketRmb":"约 4,695 万元","photo":"https://img.a.transfermarkt.technology/portrait/big/598506-1723144724.jpg?lm=1","status":"替补/轮换","role":"替补或轮换球员，是否出场取决于正式首发和比赛走势。"},{"team":"morocco","teamCn":"摩洛哥","number":"17","name":"Abde Ezzalzouli","cnName":"阿卜德·埃扎洛祖利","nickname":"阿布德","position":"左边锋","age":24,"heightCm":178,"weightKg":73,"nationality":"摩洛哥","club":"皇家贝蒂斯","marketRmb":"约 3.13 亿元","photo":"https://img.a.transfermarkt.technology/portrait/big/724520-1758782814.jpg?lm=1","status":"替补/轮换","role":"替补或轮换球员，是否出场取决于正式首发和比赛走势。"},{"team":"morocco","teamCn":"摩洛哥","number":"7","name":"Chemsdine Talbi","cnName":"谢姆斯丁·塔尔比","nickname":"","position":"右边锋","age":21,"heightCm":175,"weightKg":69,"nationality":"摩洛哥","club":"桑德兰","marketRmb":"约 1.96 亿元","photo":"https://r2.thesportsdb.com/images/media/player/cutout/j2sw9j1772021582.png","status":"预计首发","role":"预计首发边锋候选，替代左路伤停风险。"},{"team":"morocco","teamCn":"摩洛哥","number":"16","name":"Gessime Yassine","cnName":"亚辛·格西姆","nickname":"","position":"右边锋","age":20,"heightCm":173,"weightKg":55,"nationality":"摩洛哥","club":"斯特拉斯堡","marketRmb":"约 9,389 万元","photo":"https://img.a.transfermarkt.technology/portrait/big/1151929-1780320928.jpg?lm=1","status":"替补/轮换","role":"替补或轮换球员，是否出场取决于正式首发和比赛走势。"},{"team":"morocco","teamCn":"摩洛哥","number":"21","name":"Ayoube Amaimouni-Echghouyab","cnName":"阿尤布·阿迈穆尼","nickname":"","position":"右边锋","age":21,"heightCm":178,"weightKg":69,"nationality":"摩洛哥","club":"法兰克福","marketRmb":"约 7,824 万元","photo":"https://img.a.transfermarkt.technology/portrait/big/799993-1773653073.jpg?lm=1","status":"替补/轮换","role":"替补或轮换球员，是否出场取决于正式首发和比赛走势。"}]};
+    const STAFF = {"brazil":[{"cnName":"卡洛·安切洛蒂","name":"Carlo Ancelotti","role":"主教练","note":"国内常用称呼：安帅 / 安胖"},{"cnName":"保罗·克莱门特","name":"Paul Clement","role":"助理教练","note":"负责训练协同"},{"cnName":"弗朗切斯科·毛里","name":"Francesco Mauri","role":"助理教练","note":"负责训练协同"},{"cnName":"达维德·安切洛蒂","name":"Davide Ancelotti","role":"助理教练","note":"负责训练协同"},{"cnName":"克劳迪奥·塔法雷尔","name":"Claudio Taffarel","role":"门将教练","note":"巴西名宿"},{"cnName":"马尔基尼奥斯","name":"Marquinhos","role":"门将教练","note":"教练组成员，非同名场上队长"},{"cnName":"米诺·富尔科","name":"Mino Fulco","role":"体能教练","note":"体能支持"},{"cnName":"西蒙尼·蒙塔纳罗","name":"Simone Montanaro","role":"首席分析师","note":"比赛分析支持"}],"morocco":[{"cnName":"穆罕默德·瓦赫比","name":"Mohamed Ouahbi","role":"主教练","note":"摩洛哥本届世界杯主教练"}]};
+
+    const $ = (selector, root = document) => root.querySelector(selector);
+    const $$ = (selector, root = document) => Array.from(root.querySelectorAll(selector));
+    const byTeamNumber = (team, number) => SQUADS[team].find((player) => player.number === String(number));
+
+    function renderPanels() {
+      const container = $('#roster-panels');
+      container.innerHTML = Object.entries(SQUADS).map(([team, players]) => {
+        const isBrazil = team === 'brazil';
+        const staffRows = STAFF[team].map((member) => `
+          <div class="staff-item">
+            <b>${member.cnName}（${member.name}）</b>
+            <span>${member.role}；${member.note}</span>
+          </div>
+        `).join('');
+        const rows = players.map((player) => {
+          const nameCell = `<button class="name-link" type="button" data-team="${player.team}" data-number="${player.number}">${player.cnName}（${player.name}）</button>`;
+          const nickname = player.nickname
+            ? `<div class="name-meta">常用叫法：${player.nickname}</div>`
+            : '';
+          const avatar = `<button class="avatar-button" type="button" data-team="${player.team}" data-number="${player.number}" aria-label="查看${player.cnName}球员卡"><img src="${player.photo}" alt="${player.cnName}头像"></button>`;
+          const statusClass = player.status === '预计首发' ? 'badge start' : 'badge';
+          return `
+            <tr>
+              <td class="avatar-cell">${avatar}</td>
+              <td>${player.number}</td>
+              <td>${nameCell}${nickname}</td>
+              <td>${player.position}</td>
+              <td>${player.age}</td>
+              <td>${player.heightCm}cm / ${player.weightKg}kg</td>
+              <td>${player.club}</td>
+              <td>${player.marketRmb}</td>
+              <td><span class="${statusClass}">${player.status}</span></td>
+            </tr>
+          `;
+        }).join('');
+        return `
+          <div class="team-panel" data-panel="${team}" ${isBrazil ? '' : 'hidden'}>
+            <h3>${players[0].teamCn}教练组</h3>
+            <div class="staff-list">${staffRows}</div>
+            <div class="table-wrap">
+              <table class="roster-table">
+                <thead><tr><th>头像</th><th>上场号码</th><th>球员</th><th>位置</th><th>年龄</th><th>身高/体重</th><th>效力俱乐部</th><th>身价（人民币）</th><th>预计身份</th></tr></thead>
+                <tbody>${rows}</tbody>
+              </table>
+            </div>
+          </div>
+        `;
+      }).join('');
+    }
+
+    function openCard(team, number) {
+      const player = byTeamNumber(team, number);
+      if (!player) return;
+      $('#card-photo').src = player.photo;
+      $('#card-photo').alt = `${player.cnName}近照`;
+      $('#card-number').textContent = `#${player.number}`;
+      $('#card-kicker').textContent = `${player.teamCn} · ${player.status} · ${player.position}`;
+      $('#card-name').textContent = player.cnName;
+      $('#card-name-en').textContent = player.nickname
+        ? `${player.name}；常用叫法：${player.nickname}`
+        : player.name;
+      $('#card-role').textContent = player.role;
+      $('#card-stats').innerHTML = [
+        ['上场号码', `#${player.number}`],
+        ['年龄', `${player.age} 岁`],
+        ['身高', `${player.heightCm} cm`],
+        ['体重', `${player.weightKg} kg`],
+        ['俱乐部', player.club],
+        ['身价', player.marketRmb]
+      ].map(([label, value]) => `<div class="stat"><small>${label}</small><b>${value}</b></div>`).join('');
+      $('#player-modal').classList.add('open');
+      $('#player-modal').setAttribute('aria-hidden', 'false');
+    }
+
+    function closeCard() {
+      $('#player-modal').classList.remove('open');
+      $('#player-modal').setAttribute('aria-hidden', 'true');
+    }
+
+    renderPanels();
+
+    $$('.tab-button').forEach((button) => {
+      button.addEventListener('click', () => {
+        const team = button.dataset.team;
+        $$('.tab-button').forEach((item) => item.classList.toggle('active', item === button));
+        $$('.team-panel').forEach((panel) => { panel.hidden = panel.dataset.panel !== team; });
+      });
+    });
+
+    document.addEventListener('click', (event) => {
+      const opener = event.target.closest('[data-team][data-number]');
+      if (opener) openCard(opener.dataset.team, opener.dataset.number);
+      if (event.target.id === 'player-modal' || event.target.closest('.close-modal')) closeCard();
+    });
+
+    document.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape') closeCard();
+    });
+  </script>
+</body>
+</html>
