@@ -1,6 +1,6 @@
 # Contributing
 
-欢迎改进这个世界杯赛前分析 skill。优先接受能提升信息可靠性、报告可读性、响应式体验和负责任购彩提示的贡献。
+欢迎改进这个世界杯赛前分析 Agent Skill。优先接受能提升跨工具兼容性、信息可靠性、报告可读性、响应式体验和负责任购彩提示的贡献。
 
 ## 贡献方向
 
@@ -8,7 +8,7 @@
 - 优化 `references/report-spec.md`，让新报告更稳定地覆盖阵容、战术、赔率、风险和预算分配。
 - 改进 HTML 示例的移动端展示、球员卡交互、战术板和预算进度条。
 - 增加更多示例报告，但请确保示例不包含本地路径、私人信息、账号信息或无法验证的传闻。
-- 改进安装脚本和文档，让首次使用者能更顺利地安装。
+- 改进安装脚本和文档，让 Codex、Claude Code、GitHub Copilot、Cursor、Gemini CLI 等工具的使用者能更顺利地安装或迁移。
 
 ## 基本要求
 
@@ -20,7 +20,14 @@
 
 ## 本地检查
 
-修改 skill 后，建议运行 Codex skill 校验：
+修改 skill 后，建议先用 GitHub CLI 的 Agent Skills 校验或预览流程检查：
+
+```bash
+gh skill preview asttstxh/worldcup-Viewing-Lottery-Assistant-skill skills/worldcup-match-report
+gh skill publish --dry-run
+```
+
+如果你在 Codex 本地环境中维护这个 skill，也可以运行 Codex skill 校验：
 
 ```bash
 python3 ~/.codex/skills/.system/skill-creator/scripts/quick_validate.py skills/worldcup-match-report
