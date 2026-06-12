@@ -1,12 +1,11 @@
 # World Cup Viewing & Lottery Assistant Skill
 
-把一场世界杯比赛，变成一份可核验、可浏览、可执行的中文赛前报告。
+这个skill写给那些想看世界杯，有喜欢的球队和球星，却对其他信息一知半解的朋友，观赛时全靠解说来补场内外信息，想买点体彩吧也是纯凭感觉，没时间没精力去逐个研究。
 
-这是一个面向 AI Agent 的可迁移 skill 包，不是 Codex 专属扩展。它采用通用的 `SKILL.md + references + assets` 结构：只要你的 AI 工具支持 Agent Skills、规则文件、项目指令、斜杠命令或自定义上下文，就可以安装、导入或改造成自己的赛前分析助手。
+这是一个面向 AI Agent 的可迁移 skill 包，它会围绕一场指定比赛，主动整理球队、赛程、阵容、球员资料、历史交锋、赔率变化、战术倾向和风险因素，生成一份独立 HTML 报告：既能当观赛指南，也能作为固定预算下的体育彩票参考方案。
 
-它会围绕一场指定比赛，主动整理球队、赛程、阵容、球员资料、历史交锋、赔率变化、战术倾向和风险因素，生成一份独立 HTML 报告：既能当观赛指南，也能作为固定预算下的体育彩票参考方案。
+它采用通用的 `SKILL.md + references + assets` 结构：只要你的 AI 工具支持 Agent Skills、规则文件、项目指令、斜杠命令或自定义上下文，就可以安装、导入或改造成自己的赛前分析助手。
 
-![示例报告预览](docs/report-preview.svg)
 
 ## 完整案例：巴西 vs 摩洛哥
 
@@ -20,21 +19,6 @@
 ![巴西 vs 摩洛哥赛前分析报告第 4 部分](docs/cases/brazil-vs-morocco/report-04.png)
 ![巴西 vs 摩洛哥赛前分析报告第 5 部分](docs/cases/brazil-vs-morocco/report-05.png)
 
-## 适用工具
-
-这个仓库优先按 Agent Skills 规范组织，同时也适合改造成其他 AI 工具的规则、命令或项目指令。常见使用方式如下：
-
-| 工具 | 推荐用法 |
-| --- | --- |
-| GitHub Copilot Agent Skills | 使用 GitHub CLI `gh skill` 安装，或下载 `skills/worldcup-match-report/`。 |
-| Claude Code | 使用 `gh skill` 安装到 Claude Code，或将 skill 目录导入 Claude Code skills。 |
-| OpenAI Codex | 使用本仓库脚本安装到 Codex skill 目录，或使用 `gh skill`。 |
-| Cursor | 使用 `gh skill` 支持的 Agent Skills 流程；也可以把 `SKILL.md` 和 `references/report-spec.md` 改成 Cursor Rules。 |
-| Gemini CLI | 使用 `gh skill` 支持的 Agent Skills 流程；也可以把核心说明作为 Gemini 项目指令。 |
-| Antigravity、Amp、Goose、Junie、OpenCode、Windsurf、Continue、Cline 等 | 优先尝试 GitHub CLI `gh skill` 支持的宿主参数；如果本机版本尚未覆盖，就按手动规则包迁移。 |
-| Aider、Roo Code、Zed 以及其他支持规则文件或自定义上下文的工具 | 复制 `SKILL.md`、`references/report-spec.md` 和 `assets/`，作为项目规则、agent 指令或自定义命令使用。 |
-
-核心原则很简单：这个 skill 的价值不依赖某个客户端，而在于一套可复用的赛前分析流程、证据规则、报告结构和视觉参考。
 
 ## 它能帮你做什么
 
@@ -54,6 +38,24 @@
 - 想把海外赔率、球队实力、战术风险和中国体育彩票执行规则放在同一份报告里对照的人。
 - 想为赛前分析建立一个稳定流程，而不是每场比赛临时从多个网页拼信息的人。
 - 想把同一套赛前分析方法带到 Claude Code、Codex、Copilot、Cursor、Gemini CLI 或其他 AI Agent 工具中的用户。
+
+
+## 适用工具
+
+这个仓库优先按 Agent Skills 规范组织，同时也适合改造成其他 AI 工具的规则、命令或项目指令。常见使用方式如下：
+
+| 工具 | 推荐用法 |
+| --- | --- |
+| GitHub Copilot Agent Skills | 使用 GitHub CLI `gh skill` 安装，或下载 `skills/worldcup-match-report/`。 |
+| Claude Code | 使用 `gh skill` 安装到 Claude Code，或将 skill 目录导入 Claude Code skills。 |
+| OpenAI Codex | 使用本仓库脚本安装到 Codex skill 目录，或使用 `gh skill`。 |
+| Cursor | 使用 `gh skill` 支持的 Agent Skills 流程；也可以把 `SKILL.md` 和 `references/report-spec.md` 改成 Cursor Rules。 |
+| Gemini CLI | 使用 `gh skill` 支持的 Agent Skills 流程；也可以把核心说明作为 Gemini 项目指令。 |
+| Antigravity、Amp、Goose、Junie、OpenCode、Windsurf、Continue、Cline 等 | 优先尝试 GitHub CLI `gh skill` 支持的宿主参数；如果本机版本尚未覆盖，就按手动规则包迁移。 |
+| Aider、Roo Code、Zed 以及其他支持规则文件或自定义上下文的工具 | 复制 `SKILL.md`、`references/report-spec.md` 和 `assets/`，作为项目规则、agent 指令或自定义命令使用。 |
+
+核心原则很简单：这个 skill 的价值不依赖某个客户端，而在于一套可复用的赛前分析流程、证据规则、报告结构和视觉参考。
+
 
 ## 快速开始
 
