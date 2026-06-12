@@ -10,7 +10,7 @@
 
 ## 适用工具
 
-这个仓库优先按 Agent Skills 规范组织，同时也适合改造成其他 AI 工具的规则或命令。常见使用方式如下：
+这个仓库优先按 Agent Skills 规范组织，同时也适合改造成其他 AI 工具的规则、命令或项目指令。常见使用方式如下：
 
 | 工具 | 推荐用法 |
 | --- | --- |
@@ -19,7 +19,8 @@
 | OpenAI Codex | 使用本仓库脚本安装到 Codex skill 目录，或使用 `gh skill`。 |
 | Cursor | 使用 `gh skill` 支持的 Agent Skills 流程；也可以把 `SKILL.md` 和 `references/report-spec.md` 改成 Cursor Rules。 |
 | Gemini CLI | 使用 `gh skill` 支持的 Agent Skills 流程；也可以把核心说明作为 Gemini 项目指令。 |
-| Windsurf、Aider、OpenCode、Roo Code、Continue、Zed 等 | 复制 `SKILL.md`、`references/report-spec.md` 和 `assets/`，作为项目规则、agent 指令或自定义命令使用。 |
+| Antigravity、Amp、Goose、Junie、OpenCode、Windsurf、Continue、Cline 等 | 优先尝试 GitHub CLI `gh skill` 支持的宿主参数；如果本机版本尚未覆盖，就按手动规则包迁移。 |
+| Aider、Roo Code、Zed 以及其他支持规则文件或自定义上下文的工具 | 复制 `SKILL.md`、`references/report-spec.md` 和 `assets/`，作为项目规则、agent 指令或自定义命令使用。 |
 
 核心原则很简单：这个 skill 的价值不依赖某个客户端，而在于一套可复用的赛前分析流程、证据规则、报告结构和视觉参考。
 
@@ -59,7 +60,7 @@ gh skill install asttstxh/worldcup-Viewing-Lottery-Assistant-skill skills/worldc
 gh skill install --help
 ```
 
-根据本机可用宿主选择对应的 `--agent` 与 `--scope` 参数。
+根据本机可用宿主选择对应的 `--agent` 与 `--scope` 参数。GitHub CLI 文档列出的宿主包含 GitHub Copilot、Claude Code、Cursor、Codex、Gemini CLI、Antigravity、Amp、Goose、Junie、OpenCode、Windsurf、Continue、Cline 等；实际可用列表以你本机 `gh skill install --help` 为准。
 
 ### 方式二：OpenAI Codex 本地安装
 
@@ -135,4 +136,4 @@ output/worldcup-betting-assistant/
 
 ## English Summary
 
-World Cup Viewing & Lottery Assistant Skill is a portable AI Agent Skill package for generating source-backed Chinese HTML match previews. It combines viewing guidance, squad research, player cards, tactical notes, odds explanation, risk flags, and a fixed-budget sports lottery plan. The package follows the `SKILL.md` pattern and can be used with Agent Skills hosts such as GitHub Copilot, Claude Code, Codex, Cursor, and Gemini CLI, or adapted into rules and custom instructions for other AI agent tools.
+World Cup Viewing & Lottery Assistant Skill is a portable AI Agent Skill package for generating source-backed Chinese HTML match previews. It combines viewing guidance, squad research, player cards, tactical notes, odds explanation, risk flags, and a fixed-budget sports lottery plan. The package follows the `SKILL.md` pattern and can be used with Agent Skills hosts such as GitHub Copilot, Claude Code, Codex, Cursor, Gemini CLI, Antigravity, Amp, Goose, Junie, OpenCode, Windsurf, Continue, and Cline, or adapted into rules and custom instructions for other AI agent tools.
